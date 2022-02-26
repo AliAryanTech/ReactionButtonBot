@@ -20,4 +20,3 @@ class Config(object):
         CHANNEL_ID = int(channel_id)
 
     MONGO_STR = environ.get("MONGO_STR", "")
-
