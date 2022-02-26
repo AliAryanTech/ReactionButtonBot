@@ -13,6 +13,10 @@ class Config(object):
     
     API_HASH = environ.get("API_HASH", "")
     
-    CHANNEL_ID = int(environ.get("CHANNEL_ID", None))
+    channel_id = environ.get("CHANNEL_ID", None)
+    if ',' in channel_id:
+        CHANNEL_ID = list(map(int, list(channel_id.split(','))))
+    else:
+        CHANNEL_ID = int(channel_id)
 
     MONGO_STR = environ.get("MONGO_STR", "")
